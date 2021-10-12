@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { Context } from "../../context/store";
 
 const Form = () => {
-    const [state, dispatch] = useContext(Context);
+    const [stateA] = useContext(Context);
 
     return (
         <>
-            <p>{state.name}</p>
+            <p>{stateA.name}</p>
         </>
     );
 }

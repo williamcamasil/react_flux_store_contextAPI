@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Boilerplate Arquitetura Flux com Context API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Na branch **main **foi desenvolvido um exemplo de como aplicar a arquitetura [Flux](https://medium.com/engenharia-arquivei/arquitetura-flux-26a419871ade) e [Context API](https://codeburst.io/global-state-with-react-hooks-and-context-api-87019cc4f2cf) toda estruturada para o gerenciamento dos estados entre as diversas páginas do sitema web.
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
+## Pastas e Arquivos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+src
+	context
+		reducer.js
+		store.js
+	screens
+		Form
+        	Form.jsx
+        Home
+        	Home.jsx
+     index.js
+        	
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ 
 
-### `yarn test`
+- **context** [pasta] = local onde serão armazenados as stores e reducers para o gerenciamento dos estados;
+- **reducer.js** [arquivo] = local onde serão realizados as ações para mudar o estado do objeto;
+- **store.js** [arquivo] = local onde será declarado o estado inicial e como será passado para seus filhos (páginas e/ou componentes)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Ações atreladas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- dispatch()
+- useReducer()
+- useContext()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Obs
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Na **index.js** é inserido a Store, para que as informações **nela gerenciadas** sejam replicadas para todas as páginas e componentes. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Dependência
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Foi utilizado somente a dependência [react-router-dom](https://yarnpkg.com/package/react-router-dom) para a navegação entre as páginas.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Baixe e teste
 
-### Code Splitting
+- git clone https://github.com/williamcamasil/react_flux_store_contextAPI.git
+- acesse a pasta react_flux_store_contextAPI
+- abra o no vscode
+- execute os comandos no prompt
+  - yarn				(baixa as depêndencias do node_modules)
+  - yarn start       (Abre o boilerplate no browser)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Boilerplate aplicado
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esse boilerplate trata-se de duas páginas, sendo HOME e FORM, a qual a Home inseri as informações por dispatch e é mostrado na tela o resultado aplicado, além de aplicar para mais de um objeto. o Form recebe somente o resultado obtido através da tela Home, dessa forma sendo possível utilizando os dados a parir da store e não mais por passagens de props de filho para pai. 

@@ -1,3 +1,4 @@
+//base: https://codeburst.io/global-state-with-react-hooks-and-context-api-87019cc4f2cf
 import React, { createContext, useReducer } from "react";
 import Reducer from './reducer';
 
@@ -7,6 +8,7 @@ const initialState = {
     work: false
 };
 
+//TODO: Insert multi Store
 const Store = ({ children }) => {
     const [state, dispatch] = useReducer(Reducer, initialState);
     return (

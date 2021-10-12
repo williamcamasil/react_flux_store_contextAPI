@@ -6,6 +6,15 @@ const Reducer = (state, action) => {
                 name: action.payload
                 //age and work
             };
+
+        case 'SET_ALL':
+            return {
+                ...state,
+                name: action.payload[0],
+                age: action.payload[1],
+                work: action.payload[2]
+                //age and work
+            };
         // case 'ADD_POST':
         //     return {
         //         ...state,

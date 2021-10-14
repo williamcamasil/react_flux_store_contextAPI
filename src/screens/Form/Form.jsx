@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { Context } from "../../context/store";
+import { PersonContext } from "../../context/person/index";
 
 const Form = () => {
-    const [stateA] = useContext(Context);
+    const [statePerson] = useContext(PersonContext);
 
     return (
         <>
-            <p>{stateA.name}</p>
+            <p>{statePerson.name}</p>
         </>
     );
 }
